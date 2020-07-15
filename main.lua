@@ -21,8 +21,13 @@ function love.update(dt)
 	    	single:send("peer")
 	    	single = nil
 	    end
+	  elseif event.type == "disconnect" then
+	  	peers[peers[event.peer]] = nil
+	  	peers[event.peers] = nil
 	  elseif event.type == "receive" then
-	  	peers[event.peer]:send(event.data)
+	  	if peers[event.peer] ~= nil then
+	  		peers[event.peer]:send(event.data)
+	  	end
 	  end
 	  event = host:service()
 	end
