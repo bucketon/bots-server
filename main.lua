@@ -1,4 +1,5 @@
 function love.load()
+	print("Starting server...")
 	local enet = require "enet"
 	host = enet.host_create("*:6789")
 	peers = {}
