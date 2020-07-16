@@ -23,7 +23,7 @@ function love.update(dt)
 	    end
 	  elseif event.type == "disconnect" then
 	  	peers[peers[event.peer]] = nil
-	  	peers[event.peers] = nil
+	  	peers[event.peer] = nil
 	  elseif event.type == "receive" then
 	  	if peers[event.peer] ~= nil then
 	  		peers[event.peer]:send(event.data)
